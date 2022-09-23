@@ -1,5 +1,5 @@
 # before run code please install Duplicate Image Folder "difPy"
-# https://github.com/elisemercury/Duplicate-Image-Finder
+# ref : https://github.com/elisemercury/Duplicate-Image-Finder
 # pip install difPy
 
 from difPy import dif
