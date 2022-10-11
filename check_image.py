@@ -5,7 +5,7 @@
 
 from difPy import dif
 
-dif("D:/pic_fish/1image_fish", "D:/pic_fish/2image_fish",similarity="normal", delete=True)
+dif("path_a", "path_b",similarity="normal", delete=True)
 
 #print(search.result)
 #print(search.lower_quality)
