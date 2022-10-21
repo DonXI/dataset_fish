@@ -6,6 +6,7 @@
 from difPy import dif
 
 search = dif("path_a", "path_b",similarity="normal", delete=True)
+#search = dif("path_a", "path_b",similarity="normal")
 
 #print(search.result)
 #print(search.lower_quality)
