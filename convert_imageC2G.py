@@ -3,7 +3,7 @@ all_fish = ['pod', 'ku_lare', 'see_kun', 'too', 'khang_pan', 'hang_lueang', 'sai
 images = []
 print("GrayScale Image")
 for type_fish in all_fish:
-    images_path = glob.glob(f"temp_{type_fish}/*.jpg")
+    images_path = glob.glob(f"{type_fish}/*.jpg")
     count_fish = 0
     for img_path in images_path:
         # read image by grayscale
