@@ -1,4 +1,4 @@
-### manage fish dataset ###
+### manage dataset ###
 
 import os, shutil
 

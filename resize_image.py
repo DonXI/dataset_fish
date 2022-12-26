@@ -1,3 +1,5 @@
+### resize image to 1920x1080 pixels ###
+
 import cv2, math, os, glob, shutil
 
 folder_fish = ['pod', 'ku_lare', 'see_kun', 'too', 

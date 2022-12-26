@@ -1,3 +1,5 @@
+### convert image color to gray ###
+
 import cv2, glob
 all_fish = ['pod', 'ku_lare', 'see_kun', 'too', 'khang_pan', 'hang_lueang', 'sai_dang', 'sai_dum']
 images = []
