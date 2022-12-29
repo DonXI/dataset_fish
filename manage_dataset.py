@@ -4,14 +4,16 @@ import os, shutil
 
 folder_fish = ['pod', 'ku_lare', 'see_kun', 'too', 
                 'khang_pan', 'hang_lueang', 'sai_dang']
-
+                
+# create folder name train and test
 if not os.path.isdir("train_dataset"):
     os.makedirs("train_dataset")
 if not os.path.isdir("test_dataset"):
     os.makedirs("test_dataset")
 
-big_folder = os.getcwd() 
+big_folder = os.getcwd() # check location path file now
 
+# choose 70 percent for train and 30 percent for test
 for name_folder_fish in folder_fish:
     # calculate percent train/test dataset
     sum_item = len(os.listdir(name_folder_fish))

@@ -3,8 +3,9 @@
 import cv2, glob
 all_fish = ['pod', 'ku_lare', 'see_kun', 'too', 'khang_pan', 'hang_lueang', 'sai_dang', 'sai_dum']
 images = []
-print("GrayScale Image")
+
 for type_fish in all_fish:
+    # get file .jpg in folder
     images_path = glob.glob(f"{type_fish}/*.jpg")
     count_fish = 0
     for img_path in images_path:
