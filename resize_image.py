@@ -22,7 +22,7 @@ for name_image in folder_fish:
         height_img, width_img, channel = im.shape
         
         # resize to 1920, 1080
-        if height_img < width_img:
+        if height_img < width_img and height_img > 1920 and width_img > 1080:
             div = width_img / 1920
             new_height = math.ceil(height_img / div)
             new_width = math.ceil(width_img /div)
@@ -30,7 +30,7 @@ for name_image in folder_fish:
             cv2.imwrite(f"resized/{name_image}/{name_im}",reimg)
             
         # image vertical    
-        elif height_img > width_img:
+        elif height_img > width_img and height_img > 1920 and width_img > 1080:
             a = height_img / 1920
             new_width = math.ceil(width_img /a)
             new_height = math.ceil(height_img / a)
