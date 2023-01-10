@@ -34,8 +34,8 @@ for name_image in folder_fish:
             a = height_img / 1920
             new_width = math.ceil(width_img /a)
             new_height = math.ceil(height_img / a)
-            shutil.copy2(f"{name_image}/{name_im}", f"resized/{name_image}")
+            shutil.copy2(f"augmented/{name_image}/{name_im}", f"resized/{name_image}")
 
         # image size small
         elif height_img <= 1920 or width_img <= 1920:
-            shutil.copy2(f"{name_image}/{name_im}", f"resized/{name_image}")
+            shutil.copy2(f"augmented/{name_image}/{name_im}", f"resized/{name_image}")

@@ -3,7 +3,7 @@
 import os, shutil
 
 folder_fish = ['pod', 'ku_lare', 'see_kun', 'too', 
-                'khang_pan', 'hang_lueang', 'sai_dang']
+                'khang_pan', 'hang_lueang', 'sai_dang', 'sai_dum']
                 
 # create folder name train and test
 if not os.path.isdir("train_dataset"):
@@ -25,6 +25,7 @@ for name_folder_fish in folder_fish:
     path_source = big_folder + "\\" + name_folder_fish
     path_train = big_folder + "\\train_dataset"
     
+    # move file to folder train dataset
     for fname in file_train_dataset:
         shutil.copy2(os.path.join(path_source,fname), path_train)
         
@@ -32,5 +33,6 @@ for name_folder_fish in folder_fish:
     file_test_dataset = sorted(os.listdir(name_folder_fish))[train_70_percent:]
     path_test = big_folder + "\\test_dataset"
     
+    # move file to folder test dataset
     for fname in file_test_dataset:
         shutil.copy2(os.path.join(path_source,fname), path_test)
