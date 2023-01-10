@@ -1,5 +1,5 @@
 # GUI Thai fish sorting
-ีuse qt designer and pyqt5
+use qt designer and pyqt5
 
 convert .ui to .py
 ``` shell
