@@ -30,7 +30,7 @@
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="back">
+   <widget class="QPushButton" name="exit">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -45,16 +45,16 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">#back{
+     <string notr="true">#exit{
 border-radius: 10px;
 	background-color: rgb(155, 215, 255);
 }
 
-#back:hover{
+#exit:hover{
 background-color: rgb(117, 177, 255);
 }
 
-#back:pressed{
+#exit:pressed{
 background-color: rgb(139, 234, 255);
 }</string>
     </property>
@@ -62,7 +62,7 @@ background-color: rgb(139, 234, 255);
      <string>exit</string>
     </property>
    </widget>
-   <widget class="QLabel" name="web_cam">
+   <widget class="QLabel" name="show_camera">
     <property name="geometry">
      <rect>
       <x>960</x>
@@ -161,7 +161,7 @@ background-color: rgb(186, 255, 160);
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_3">
+   <widget class="QCheckBox" name="checkBox_hang_lueang">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -183,7 +183,7 @@ background-color: rgb(235, 235, 235);</string>
      <string>ปลาหางเหลือง</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="bg_fish">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -258,7 +258,7 @@ background-color: rgb(244, 244, 244);
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QCheckBox" name="checkBox_pod">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -299,7 +299,7 @@ background-color: rgb(235, 235, 235);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_2">
+   <widget class="QCheckBox" name="checkBox_sai_dang">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -321,7 +321,7 @@ background-color: rgb(235, 235, 235);</string>
      <string>ปลาทรายแดง</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="img_fish_all">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -375,7 +375,7 @@ background-color: rgb(235, 235, 235);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_4">
+   <widget class="QCheckBox" name="checkBox_see_kun">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -397,7 +397,7 @@ background-color: rgb(235, 235, 235);</string>
      <string>ปลาสีกุล</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_5">
+   <widget class="QCheckBox" name="checkBox_all">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -438,7 +438,7 @@ background-color: rgb(235, 235, 235);</string>
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_6">
+   <widget class="QCheckBox" name="checkBox_ku_lare">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -460,7 +460,7 @@ background-color: rgb(235, 235, 235);</string>
      <string>ปลากุแร</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_7">
+   <widget class="QCheckBox" name="checkBox_sai_dum">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -482,7 +482,7 @@ background-color: rgb(235, 235, 235);</string>
      <string>ปลาทรายดำ</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_8">
+   <widget class="QCheckBox" name="checkBox_khang_pan">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -504,7 +504,7 @@ background-color: rgb(235, 235, 235);</string>
      <string>ปลาข้างปาน</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_9">
+   <widget class="QCheckBox" name="checkBox_too">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -526,32 +526,65 @@ background-color: rgb(235, 235, 235);</string>
      <string>ปลาทู</string>
     </property>
    </widget>
-   <zorder>label</zorder>
-   <zorder>back</zorder>
-   <zorder>web_cam</zorder>
+   <zorder>bg_fish</zorder>
+   <zorder>exit</zorder>
+   <zorder>show_camera</zorder>
    <zorder>stop</zorder>
    <zorder>start</zorder>
    <zorder>img_too</zorder>
    <zorder>img_sai_dum</zorder>
    <zorder>img_see_kun</zorder>
    <zorder>img_ku_lare</zorder>
-   <zorder>checkBox</zorder>
+   <zorder>checkBox_pod</zorder>
    <zorder>img_sai_dang</zorder>
-   <zorder>checkBox_2</zorder>
-   <zorder>label_2</zorder>
+   <zorder>checkBox_sai_dang</zorder>
+   <zorder>img_fish_all</zorder>
    <zorder>img_pod</zorder>
    <zorder>img_hang_lueang</zorder>
-   <zorder>checkBox_4</zorder>
-   <zorder>checkBox_5</zorder>
+   <zorder>checkBox_see_kun</zorder>
+   <zorder>checkBox_all</zorder>
    <zorder>img_khang_pan</zorder>
-   <zorder>checkBox_6</zorder>
-   <zorder>checkBox_7</zorder>
-   <zorder>checkBox_8</zorder>
-   <zorder>checkBox_9</zorder>
-   <zorder>checkBox_3</zorder>
+   <zorder>checkBox_ku_lare</zorder>
+   <zorder>checkBox_sai_dum</zorder>
+   <zorder>checkBox_khang_pan</zorder>
+   <zorder>checkBox_too</zorder>
+   <zorder>checkBox_hang_lueang</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>start</sender>
+   <signal>pressed()</signal>
+   <receiver>show_camera</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1271</x>
+     <y>753</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1274</x>
+     <y>615</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>stop</sender>
+   <signal>pressed()</signal>
+   <receiver>show_camera</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1574</x>
+     <y>753</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>1569</x>
+     <y>614</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

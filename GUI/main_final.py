@@ -26,29 +26,29 @@ class Ui_MainWindow(object):
         MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.back = QtWidgets.QPushButton(self.centralwidget)
-        self.back.setGeometry(QtCore.QRect(70, 750, 150, 80))
+        self.exit = QtWidgets.QPushButton(self.centralwidget)
+        self.exit.setGeometry(QtCore.QRect(70, 750, 150, 80))
         font = QtGui.QFont()
         font.setPointSize(16)
-        self.back.setFont(font)
-        self.back.setStyleSheet("#back{\n"
+        self.exit.setFont(font)
+        self.exit.setStyleSheet("#exit{\n"
 "border-radius: 10px;\n"
 "    background-color: rgb(155, 215, 255);\n"
 "}\n"
 "\n"
-"#back:hover{\n"
+"#exit:hover{\n"
 "background-color: rgb(117, 177, 255);\n"
 "}\n"
 "\n"
-"#back:pressed{\n"
+"#exit:pressed{\n"
 "background-color: rgb(139, 234, 255);\n"
 "}")
-        self.back.setObjectName("back")
-        self.web_cam = QtWidgets.QLabel(self.centralwidget)
-        self.web_cam.setGeometry(QtCore.QRect(960, 40, 911, 581))
-        self.web_cam.setStyleSheet("background-color: rgb(230, 230, 230);")
-        self.web_cam.setText("")
-        self.web_cam.setObjectName("web_cam")
+        self.exit.setObjectName("exit")
+        self.show_camera = QtWidgets.QLabel(self.centralwidget)
+        self.show_camera.setGeometry(QtCore.QRect(960, 40, 911, 581))
+        self.show_camera.setStyleSheet("background-color: rgb(230, 230, 230);")
+        self.show_camera.setText("")
+        self.show_camera.setObjectName("show_camera")
         self.stop = QtWidgets.QPushButton(self.centralwidget)
         self.stop.setGeometry(QtCore.QRect(1500, 750, 150, 80))
         font = QtGui.QFont()
@@ -91,21 +91,21 @@ class Ui_MainWindow(object):
         self.img_too.setPixmap(QtGui.QPixmap("img_fish/too.jpg"))
         self.img_too.setScaledContents(True)
         self.img_too.setObjectName("img_too")
-        self.checkBox_3 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_3.setGeometry(QtCore.QRect(60, 290, 190, 40))
+        self.checkBox_hang_lueang = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_hang_lueang.setGeometry(QtCore.QRect(60, 290, 190, 40))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.checkBox_3.setFont(font)
-        self.checkBox_3.setStyleSheet("border-radius:5px;\n"
+        self.checkBox_hang_lueang.setFont(font)
+        self.checkBox_hang_lueang.setStyleSheet("border-radius:5px;\n"
 "background-color: rgb(235, 235, 235);")
-        self.checkBox_3.setObjectName("checkBox_3")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(30, 40, 891, 581))
-        self.label.setStyleSheet("border-radius: 10px;\n"
+        self.checkBox_hang_lueang.setObjectName("checkBox_hang_lueang")
+        self.bg_fish = QtWidgets.QLabel(self.centralwidget)
+        self.bg_fish.setGeometry(QtCore.QRect(30, 40, 891, 581))
+        self.bg_fish.setStyleSheet("border-radius: 10px;\n"
 "background-color: rgb(244, 244, 244);\n"
 "")
-        self.label.setText("")
-        self.label.setObjectName("label")
+        self.bg_fish.setText("")
+        self.bg_fish.setObjectName("bg_fish")
         self.img_sai_dum = QtWidgets.QLabel(self.centralwidget)
         self.img_sai_dum.setGeometry(QtCore.QRect(700, 180, 180, 80))
         self.img_sai_dum.setText("")
@@ -124,33 +124,33 @@ class Ui_MainWindow(object):
         self.img_ku_lare.setPixmap(QtGui.QPixmap("img_fish/ku_lare.jpg"))
         self.img_ku_lare.setScaledContents(True)
         self.img_ku_lare.setObjectName("img_ku_lare")
-        self.checkBox = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox.setGeometry(QtCore.QRect(60, 110, 190, 40))
+        self.checkBox_pod = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_pod.setGeometry(QtCore.QRect(60, 110, 190, 40))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.checkBox.setFont(font)
-        self.checkBox.setStyleSheet("border-radius:5px;\n"
+        self.checkBox_pod.setFont(font)
+        self.checkBox_pod.setStyleSheet("border-radius:5px;\n"
 "background-color: rgb(235, 235, 235);")
-        self.checkBox.setObjectName("checkBox")
+        self.checkBox_pod.setObjectName("checkBox_pod")
         self.img_sai_dang = QtWidgets.QLabel(self.centralwidget)
         self.img_sai_dang.setGeometry(QtCore.QRect(270, 180, 180, 80))
         self.img_sai_dang.setText("")
         self.img_sai_dang.setPixmap(QtGui.QPixmap("img_fish/sai_dang.jpg"))
         self.img_sai_dang.setScaledContents(True)
         self.img_sai_dang.setObjectName("img_sai_dang")
-        self.checkBox_2 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_2.setGeometry(QtCore.QRect(60, 200, 190, 40))
+        self.checkBox_sai_dang = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_sai_dang.setGeometry(QtCore.QRect(60, 200, 190, 40))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.checkBox_2.setFont(font)
-        self.checkBox_2.setStyleSheet("border-radius:5px;\n"
+        self.checkBox_sai_dang.setFont(font)
+        self.checkBox_sai_dang.setStyleSheet("border-radius:5px;\n"
 "background-color: rgb(235, 235, 235);")
-        self.checkBox_2.setObjectName("checkBox_2")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(400, 470, 180, 80))
-        self.label_2.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.label_2.setText("")
-        self.label_2.setObjectName("label_2")
+        self.checkBox_sai_dang.setObjectName("checkBox_sai_dang")
+        self.img_fish_all = QtWidgets.QLabel(self.centralwidget)
+        self.img_fish_all.setGeometry(QtCore.QRect(400, 470, 180, 80))
+        self.img_fish_all.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.img_fish_all.setText("")
+        self.img_fish_all.setObjectName("img_fish_all")
         self.img_pod = QtWidgets.QLabel(self.centralwidget)
         self.img_pod.setGeometry(QtCore.QRect(270, 90, 180, 80))
         self.img_pod.setText("")
@@ -163,107 +163,155 @@ class Ui_MainWindow(object):
         self.img_hang_lueang.setPixmap(QtGui.QPixmap("img_fish/hang_lueang.jpg"))
         self.img_hang_lueang.setScaledContents(True)
         self.img_hang_lueang.setObjectName("img_hang_lueang")
-        self.checkBox_4 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_4.setGeometry(QtCore.QRect(60, 380, 190, 40))
+        self.checkBox_see_kun = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_see_kun.setGeometry(QtCore.QRect(60, 380, 190, 40))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.checkBox_4.setFont(font)
-        self.checkBox_4.setStyleSheet("border-radius:5px;\n"
+        self.checkBox_see_kun.setFont(font)
+        self.checkBox_see_kun.setStyleSheet("border-radius:5px;\n"
 "background-color: rgb(235, 235, 235);")
-        self.checkBox_4.setObjectName("checkBox_4")
-        self.checkBox_5 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_5.setGeometry(QtCore.QRect(60, 490, 211, 40))
+        self.checkBox_see_kun.setObjectName("checkBox_see_kun")
+        self.checkBox_all = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_all.setGeometry(QtCore.QRect(60, 490, 211, 40))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.checkBox_5.setFont(font)
-        self.checkBox_5.setStyleSheet("border-radius:5px;\n"
+        self.checkBox_all.setFont(font)
+        self.checkBox_all.setStyleSheet("border-radius:5px;\n"
 "background-color: rgb(235, 235, 235);")
-        self.checkBox_5.setObjectName("checkBox_5")
+        self.checkBox_all.setObjectName("checkBox_all")
         self.img_khang_pan = QtWidgets.QLabel(self.centralwidget)
         self.img_khang_pan.setGeometry(QtCore.QRect(700, 270, 180, 80))
         self.img_khang_pan.setText("")
         self.img_khang_pan.setPixmap(QtGui.QPixmap("img_fish/khang_pan.jpg"))
         self.img_khang_pan.setScaledContents(True)
         self.img_khang_pan.setObjectName("img_khang_pan")
-        self.checkBox_6 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_6.setGeometry(QtCore.QRect(490, 110, 190, 40))
+        self.checkBox_ku_lare = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_ku_lare.setGeometry(QtCore.QRect(490, 110, 190, 40))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.checkBox_6.setFont(font)
-        self.checkBox_6.setStyleSheet("border-radius:5px;\n"
+        self.checkBox_ku_lare.setFont(font)
+        self.checkBox_ku_lare.setStyleSheet("border-radius:5px;\n"
 "background-color: rgb(235, 235, 235);")
-        self.checkBox_6.setObjectName("checkBox_6")
-        self.checkBox_7 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_7.setGeometry(QtCore.QRect(490, 200, 190, 40))
+        self.checkBox_ku_lare.setObjectName("checkBox_ku_lare")
+        self.checkBox_sai_dum = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_sai_dum.setGeometry(QtCore.QRect(490, 200, 190, 40))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.checkBox_7.setFont(font)
-        self.checkBox_7.setStyleSheet("border-radius:5px;\n"
+        self.checkBox_sai_dum.setFont(font)
+        self.checkBox_sai_dum.setStyleSheet("border-radius:5px;\n"
 "background-color: rgb(235, 235, 235);")
-        self.checkBox_7.setObjectName("checkBox_7")
-        self.checkBox_8 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_8.setGeometry(QtCore.QRect(490, 290, 190, 40))
+        self.checkBox_sai_dum.setObjectName("checkBox_sai_dum")
+        self.checkBox_khang_pan = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_khang_pan.setGeometry(QtCore.QRect(490, 290, 190, 40))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.checkBox_8.setFont(font)
-        self.checkBox_8.setStyleSheet("border-radius:5px;\n"
+        self.checkBox_khang_pan.setFont(font)
+        self.checkBox_khang_pan.setStyleSheet("border-radius:5px;\n"
 "background-color: rgb(235, 235, 235);")
-        self.checkBox_8.setObjectName("checkBox_8")
-        self.checkBox_9 = QtWidgets.QCheckBox(self.centralwidget)
-        self.checkBox_9.setGeometry(QtCore.QRect(490, 380, 190, 40))
+        self.checkBox_khang_pan.setObjectName("checkBox_khang_pan")
+        self.checkBox_too = QtWidgets.QCheckBox(self.centralwidget)
+        self.checkBox_too.setGeometry(QtCore.QRect(490, 380, 190, 40))
         font = QtGui.QFont()
         font.setPointSize(12)
-        self.checkBox_9.setFont(font)
-        self.checkBox_9.setStyleSheet("border-radius:5px;\n"
+        self.checkBox_too.setFont(font)
+        self.checkBox_too.setStyleSheet("border-radius:5px;\n"
 "background-color: rgb(235, 235, 235);")
-        self.checkBox_9.setObjectName("checkBox_9")
-        self.label.raise_()
-        self.back.raise_()
-        self.web_cam.raise_()
+        self.checkBox_too.setObjectName("checkBox_too")
+        self.bg_fish.raise_()
+        self.exit.raise_()
+        self.show_camera.raise_()
         self.stop.raise_()
         self.start.raise_()
         self.img_too.raise_()
         self.img_sai_dum.raise_()
         self.img_see_kun.raise_()
         self.img_ku_lare.raise_()
-        self.checkBox.raise_()
+        self.checkBox_pod.raise_()
         self.img_sai_dang.raise_()
-        self.checkBox_2.raise_()
-        self.label_2.raise_()
+        self.checkBox_sai_dang.raise_()
+        self.img_fish_all.raise_()
         self.img_pod.raise_()
         self.img_hang_lueang.raise_()
-        self.checkBox_4.raise_()
-        self.checkBox_5.raise_()
+        self.checkBox_see_kun.raise_()
+        self.checkBox_all.raise_()
         self.img_khang_pan.raise_()
-        self.checkBox_6.raise_()
-        self.checkBox_7.raise_()
-        self.checkBox_8.raise_()
-        self.checkBox_9.raise_()
-        self.checkBox_3.raise_()
+        self.checkBox_ku_lare.raise_()
+        self.checkBox_sai_dum.raise_()
+        self.checkBox_khang_pan.raise_()
+        self.checkBox_too.raise_()
+        self.checkBox_hang_lueang.raise_()
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
+        # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        self.checkBox_all.stateChanged.connect(self.select_all)
+        self.start.clicked.connect(self.select)
+        self.stop.clicked.connect(self.stop_work)
+        self.exit.clicked.connect(self.stop_exit)
+        # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
         self.retranslateUi(MainWindow)
+        self.start.pressed.connect(self.show_camera.clear) # type: ignore
+        self.stop.pressed.connect(self.show_camera.clear) # type: ignore
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Fish sorting"))
-        self.back.setText(_translate("MainWindow", "exit"))
+        self.exit.setText(_translate("MainWindow", "exit"))
         self.stop.setText(_translate("MainWindow", "stop"))
         self.start.setText(_translate("MainWindow", "start"))
-        self.checkBox_3.setText(_translate("MainWindow", "ปลาหางเหลือง"))
-        self.checkBox.setText(_translate("MainWindow", "ปลาป๊อด"))
-        self.checkBox_2.setText(_translate("MainWindow", "ปลาทรายแดง"))
-        self.checkBox_4.setText(_translate("MainWindow", "ปลาสีกุล"))
-        self.checkBox_5.setText(_translate("MainWindow", "ปลา 8 สายพันธุ์"))
-        self.checkBox_6.setText(_translate("MainWindow", "ปลากุแร"))
-        self.checkBox_7.setText(_translate("MainWindow", "ปลาทรายดำ"))
-        self.checkBox_8.setText(_translate("MainWindow", "ปลาข้างปาน"))
-        self.checkBox_9.setText(_translate("MainWindow", "ปลาทู"))
+        self.checkBox_hang_lueang.setText(_translate("MainWindow", "ปลาหางเหลือง"))
+        self.checkBox_pod.setText(_translate("MainWindow", "ปลาป๊อด"))
+        self.checkBox_sai_dang.setText(_translate("MainWindow", "ปลาทรายแดง"))
+        self.checkBox_see_kun.setText(_translate("MainWindow", "ปลาสีกุล"))
+        self.checkBox_all.setText(_translate("MainWindow", "ปลา 8 สายพันธุ์"))
+        self.checkBox_ku_lare.setText(_translate("MainWindow", "ปลากุแร"))
+        self.checkBox_sai_dum.setText(_translate("MainWindow", "ปลาทรายดำ"))
+        self.checkBox_khang_pan.setText(_translate("MainWindow", "ปลาข้างปาน"))
+        self.checkBox_too.setText(_translate("MainWindow", "ปลาทู"))
 
+
+    ############################################################################################################################
+    def select_all(self, state):
+        checkboxs = [self.checkBox_hang_lueang, self.checkBox_khang_pan, self.checkBox_pod, self.checkBox_ku_lare,
+                        self.checkBox_see_kun, self.checkBox_too, self.checkBox_sai_dang, self.checkBox_sai_dum]
+        for checkbox in checkboxs:
+            checkbox.setCheckState(state)
+
+
+    def check(self):
+
+        if self.checkBox_hang_lueang.isChecked():
+            print("hang_lueang")
+        if self.checkBox_khang_pan.isChecked():
+            print("khang_pan")
+        if self.checkBox_pod.isChecked():
+            print("pod")
+        if self.checkBox_ku_lare.isChecked():
+            print("ku_lare")
+        if self.checkBox_see_kun.isChecked():
+            print("see_kun")
+        if self.checkBox_too.isChecked():
+            print("too")
+        if self.checkBox_sai_dang.isChecked():
+            print("sai_dang")
+        if self.checkBox_sai_dum.isChecked():
+            print("sai_dum")
+        
+    def select(self):
+        print("start")
+        self.check()
+
+    def stop_work(self):
+        print("stop")
+
+    def stop_exit(self):
+        print("exit")
+        self.stop_work()
+        self.exit.clicked.connect(exit)
 
 if __name__ == "__main__":
     import sys
