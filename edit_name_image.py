@@ -57,77 +57,78 @@ def move_file(name):
 
 
 for namefish in list_fish:
+    try:
+        ''' check image in folder '''
+        check_image(namefish)
 
-    ''' check image in folder '''
-    check_image(namefish)
+        match namefish:
+            case "pod":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_pod
+                    change_name(filename ,namefish, v)
+            case "ku_lare":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_ku_lare
+                    change_name(filename ,namefish, v)
+            case "see_kun":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_see_kun
+                    change_name(filename ,namefish, v)
+            case "too":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_too
+                    change_name(filename ,namefish, v)
+            case "khang_pan":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_khang_pan
+                    change_name(filename ,namefish, v)
+            case "hang_lueang":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_hang_lueang
+                    change_name(filename ,namefish, v)
+            case "sai_dang":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_sai_dang
+                    change_name(filename ,namefish, v)
+            case "sai_dum":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_sai_dum
+                    change_name(filename ,namefish, v)
+            case "er":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_er
+                    change_name(filename ,namefish, v)
+            case "mix":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_mix
+                    change_name(filename ,namefish, v)
+            case "bg":
+                for p, filename in enumerate(os.listdir(namefish)):
+                    p += 1
+                    v = p + num_bg
+                    change_name(filename ,namefish, v)
 
-    match namefish:
-        case "pod":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_pod
-                change_name(filename ,namefish, v)
-        case "ku_lare":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_ku_lare
-                change_name(filename ,namefish, v)
-        case "see_kun":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_see_kun
-                change_name(filename ,namefish, v)
-        case "too":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_too
-                change_name(filename ,namefish, v)
-        case "khang_pan":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_khang_pan
-                change_name(filename ,namefish, v)
-        case "hang_lueang":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_hang_lueang
-                change_name(filename ,namefish, v)
-        case "sai_dang":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_sai_dang
-                change_name(filename ,namefish, v)
-        case "sai_dum":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_sai_dum
-                change_name(filename ,namefish, v)
-        case "er":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_er
-                change_name(filename ,namefish, v)
-        case "mix":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_mix
-                change_name(filename ,namefish, v)
-        case "bg":
-            for p, filename in enumerate(os.listdir(namefish)):
-                p += 1
-                v = p + num_bg
-                change_name(filename ,namefish, v)
-
-    ''' count fish in folder'''
-    count_fish = len(os.listdir(namefish))
-    count_all += count_fish
-    print(namefish + " : " + str(count_fish))
+        ''' count fish in folder'''
+        count_fish = len(os.listdir(namefish))
+        count_all += count_fish
+        print(namefish + " : " + str(count_fish))
 
 
-    ''' create folder if you want to move file '''
-    #create_folder(namefish)
+        ''' create folder if you want to move file '''
+        #create_folder(namefish)
 
-    ''' move file '''
-    #move_file(namefish)
+        ''' move file '''
+        #move_file(namefish)
+    except:pass
 
 print("sum fish : " + str(count_all))

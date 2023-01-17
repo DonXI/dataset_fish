@@ -1,9 +1,11 @@
 ### show multi box image ###
+# https://albumentations.ai/docs/getting_started/bounding_boxes_augmentation/
+# https://towardsdatascience.com/convert-pascal-voc-xml-to-yolo-for-object-detection-f969811ccba5
 
 import cv2, math
 
 def color_class(index_class):
-
+    
     match index_class:
         case "0":
             color = (0,0,0) # pod is black
@@ -21,7 +23,6 @@ def color_class(index_class):
             color = (0,0,255) # sai_dang is red
         case "7":
             color = (128,0,128) # sai_dum is purple
-
     return color
 
 
@@ -30,7 +31,6 @@ def visualize_box(img, label):
     h_img, w_img, channel = img.shape 
 
     for i in label :
-        
         name_class, x_center, y_center, width, height = i.split(" ")
         x_center, y_center, width, height = float(x_center), float(y_center), float(width), float(height)
 
@@ -52,15 +52,18 @@ def visualize_box(img, label):
 
 
 if __name__ == '__main__':
-    num_img = 1
+    # name image & label use the same name
+    name = "mix"
+    num_img = 558
+    last_img = 560
     count = 0
-    while num_img <= 414:
+    while num_img <= last_img:
         try:
             # read image 
-            path_image = f"image/name_image{num_img}.jpg"
+            path_image = f"image/{name}{num_img}.jpg"
             image = cv2.imread(path_image)
             #read label
-            path_label = f"label/name_label{num_img}.txt"
+            path_label = f"label/{name}{num_img}.txt"
             with open(path_label, "r") as f:
                 label = f.read().split('\n')
             if label[-1] == "":
