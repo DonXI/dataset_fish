@@ -1,7 +1,7 @@
 import cv2, os
 
 num = 0
-limit_img = 10
+limit_img = 100
 name_folder = "img"
 cap = cv2.VideoCapture("video.mp4") 
 
@@ -14,7 +14,6 @@ while (cap.isOpened) and num <= limit_img:
     check, frame = cap.read()
     # check video is not finish
     if check == True:
-
         # save file image
         cv2.imwrite(f"{name_folder}/IMG{num}.jpg", frame)
     else:
