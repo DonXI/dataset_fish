@@ -1,12 +1,12 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtWidgets import QMessageBox
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setEnabled(True)
-        MainWindow.setFixedSize(1300, 650)
+        MainWindow.setFixedSize(1280, 650)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
 "}")
         self.exit.setObjectName("exit")
         self.show_camera = QtWidgets.QLabel(self.centralwidget)
-        self.show_camera.setGeometry(QtCore.QRect(629, 20, 650, 441))
+        self.show_camera.setGeometry(QtCore.QRect(610, 20, 650, 441))
         self.show_camera.setStyleSheet("border-radius: 10px;\n"
 "background-color: rgb(230, 230, 230);")
         self.show_camera.setText("")
@@ -187,7 +187,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(235, 235, 235);")
         self.checkBox_too.setObjectName("checkBox_too")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(630, 470, 651, 51))
+        self.label.setGeometry(QtCore.QRect(610, 470, 651, 51))
         self.label.setStyleSheet("border-radius: 10px;\n"
 "background-color: rgb(244, 244, 244);")
         self.label.setText("")
@@ -267,7 +267,14 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
+        self.checkBox_all.stateChanged.connect(self.select_all)
+        self.start.clicked.connect(self.start_work)
+        self.stop.clicked.connect(self.stop_work)
+        self.exit.clicked.connect(self.stop_exit)
+
         self.retranslateUi(MainWindow)
+        self.start.pressed.connect(self.show_camera.clear)
+        self.stop.pressed.connect(self.show_camera.clear)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -285,6 +292,74 @@ class Ui_MainWindow(object):
         self.checkBox_too.setText(_translate("MainWindow", "ปลาทู"))
         self.start.setText(_translate("MainWindow", "start"))
         self.stop.setText(_translate("MainWindow", "stop"))
+
+    # checkbox select all 
+    def select_all(self, state):
+        checkboxs = [self.checkBox_hang_lueang, self.checkBox_khang_pan, self.checkBox_pod, self.checkBox_ku_lare,
+                        self.checkBox_see_kun, self.checkBox_too, self.checkBox_sai_dang, self.checkBox_sai_dum]
+        for checkbox in checkboxs:
+            checkbox.setCheckState(state)
+
+    # type fish checked 
+    def check(self):
+        if self.checkBox_hang_lueang.isChecked():
+            print("hang_lueang")
+        if self.checkBox_khang_pan.isChecked():
+            print("khang_pan")
+        if self.checkBox_pod.isChecked():
+            print("pod")
+        if self.checkBox_ku_lare.isChecked():
+            print("ku_lare")
+        if self.checkBox_see_kun.isChecked():
+            print("see_kun")
+        if self.checkBox_too.isChecked():
+            print("too")
+        if self.checkBox_sai_dang.isChecked():
+            print("sai_dang")
+        if self.checkBox_sai_dum.isChecked():
+            print("sai_dum")
+        else:
+            self.show_label("please select")
+            self.start.show()
+
+    # start work after selected checkbox
+    def start_work(self):
+        self.check()
+        self.start.hide()
+
+    def show_label(self, name):
+        self.label.setText(name)
+
+    def stop_work(self):
+        self.start.show()
+
+    def stop_exit(self):
+        #self.show_label("press again to exit !!!")
+        self.stop_work()
+        self.exit.clicked.connect(exit)
+
+    def warning_full(self):
+        msg_box_name = QMessageBox() 
+        msg_box_name.setIcon(QMessageBox.Warning)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("img_fish/fish.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        msg_box_name.setWindowIcon(icon)
+        msg_box_name.setText("the fish is full")
+        msg_box_name.setWindowTitle("Warning")
+        msg_box_name.setStandardButtons(QMessageBox.Ok)
+        msg_box_name.exec_()
+
+    def error_mechanism(self):
+        msg_box_name = QMessageBox() 
+        msg_box_name.setIcon(QMessageBox.Warning)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("img_fish/fish.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        msg_box_name.setWindowIcon(icon)
+        msg_box_name.setText("Error mechanism")
+        msg_box_name.setWindowTitle("Warning")
+        msg_box_name.setStandardButtons(QMessageBox.Ok)
+        self.stop_work()
+        msg_box_name.exec_()
 
 
 if __name__ == "__main__":
