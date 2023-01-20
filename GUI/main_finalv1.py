@@ -297,9 +297,7 @@ class Ui_MainWindow(object):
             print("sai_dang")
         if self.checkBox_sai_dum.isChecked():
             print("sai_dum")
-        else:
-            self.show_label("please select")
-            self.start.show()
+        
 
     # start work after selected checkbox
     def start_work(self):
