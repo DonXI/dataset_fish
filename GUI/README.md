@@ -5,6 +5,7 @@ convert .ui to .py
 ``` shell
 pyuic5 -x file.ui -o file.py
 ```
+
 * main_finalv1.py >> (1900, 900)
 * main_finalv2.py >> (1280, 650)
 
