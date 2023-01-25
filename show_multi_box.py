@@ -23,6 +23,8 @@ def color_class(index_class):
             color = (0,0,255) # sai_dang is red
         case "7":
             color = (128,0,128) # sai_dum is purple
+        case "8":
+            color = (0,255,0)
     return color
 
 
@@ -44,7 +46,7 @@ def visualize_box(img, label):
         rect_img = cv2.rectangle(img, (x_min, y_min), (x_max, y_max), color, 5)
         
     # resize image
-    reimg = cv2.resize(rect_img, (600, 400))
+    reimg = cv2.resize(rect_img, (600, 600))
 
     cv2.imshow('Image', reimg)
     cv2.waitKey(0)
@@ -53,9 +55,9 @@ def visualize_box(img, label):
 
 if __name__ == '__main__':
     # name image & label use the same name
-    name = "mix"
-    num_img = 558
-    last_img = 560
+    name = "sai_dang"
+    num_img = 604
+    last_img = 732
     count = 0
     while num_img <= last_img:
         try:

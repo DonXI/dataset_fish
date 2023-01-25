@@ -335,98 +335,100 @@ class Ui_MainWindow(object):
     # start work after selected checkbox
     def start_work(self):
         self.check()
-        self.start.hide()
-        weights=['yolov7_3200.pt'] 
-        source='0' 
-        img_size=640
-        conf_thres=0.25
-        iou_thres=0.45
-        device='cpu'
-        classes=None
-        agnostic_nms=False
-        augment=False
-        trace=True
-        imgsz=img_size
+        if self.state_fish:
+            self.start.hide()
+            
+            weights=['yolov7_3200.pt'] 
+            source='0' 
+            img_size=640
+            conf_thres=0.25
+            iou_thres=0.45
+            device='cpu'
+            classes=None
+            agnostic_nms=False
+            augment=False
+            trace=True
+            imgsz=img_size
 
-        webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(('rtsp://', 'rtmp://', 'http://', 'https://'))
+            webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(('rtsp://', 'rtmp://', 'http://', 'https://'))
 
-        # Initialize
-        set_logging()
-        device = select_device(device)
-        half = device.type != 'cpu'  # half precision only supported on CUDA
+            # Initialize
+            set_logging()
+            device = select_device(device)
+            half = device.type != 'cpu'  # half precision only supported on CUDA
 
-        # Load model
-        model = attempt_load(weights, map_location=device)  # load FP32 model
-        stride = int(model.stride.max())  # model stride
-        imgsz = check_img_size(imgsz, s=stride)  # check img_size
+            # Load model
+            model = attempt_load(weights, map_location=device)  # load FP32 model
+            stride = int(model.stride.max())  # model stride
+            imgsz = check_img_size(imgsz, s=stride)  # check img_size
 
-        if trace:
-            model = TracedModel(model, device, img_size)
+            if trace:
+                model = TracedModel(model, device, img_size)
 
-        if half:
-            model.half()  # to FP16
+            if half:
+                model.half()  # to FP16
 
-        # Set Dataloader
-        cudnn.benchmark = True  # set True to speed up constant image size inference
-        dataset = LoadStreams(source, img_size=imgsz, stride=stride)
+            # Set Dataloader
+            cudnn.benchmark = True  # set True to speed up constant image size inference
+            dataset = LoadStreams(source, img_size=imgsz, stride=stride)
 
-        # Get names and colors
-        names = model.module.names if hasattr(model, 'module') else model.names
+            # Get names and colors
+            names = model.module.names if hasattr(model, 'module') else model.names
 
-        # Run inference
-        if device.type != 'cpu':
-            model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(next(model.parameters())))  # run once
-        old_img_w = old_img_h = imgsz
-        old_img_b = 1
+            # Run inference
+            if device.type != 'cpu':
+                model(torch.zeros(1, 3, imgsz, imgsz).to(device).type_as(next(model.parameters())))  # run once
+            old_img_w = old_img_h = imgsz
+            old_img_b = 1
 
-        for path, img, im0s, vid_cap in dataset:
-            img = torch.from_numpy(img).to(device)
-            img = img.half() if half else img.float()  # uint8 to fp16/32
-            img /= 255.0  # 0 - 255 to 0.0 - 1.0
-            if img.ndimension() == 3:
-                img = img.unsqueeze(0)
+            for path, img, im0s, vid_cap in dataset:
+                img = torch.from_numpy(img).to(device)
+                img = img.half() if half else img.float()  # uint8 to fp16/32
+                img /= 255.0  # 0 - 255 to 0.0 - 1.0
+                if img.ndimension() == 3:
+                    img = img.unsqueeze(0)
 
-            # Warmup
-            if device.type != 'cpu' and (old_img_b != img.shape[0] or old_img_h != img.shape[2] or old_img_w != img.shape[3]):
-                old_img_b = img.shape[0]
-                old_img_h = img.shape[2]
-                old_img_w = img.shape[3]
-                for i in range(3):
-                    model(img, augment=augment)[0]
+                # Warmup
+                if device.type != 'cpu' and (old_img_b != img.shape[0] or old_img_h != img.shape[2] or old_img_w != img.shape[3]):
+                    old_img_b = img.shape[0]
+                    old_img_h = img.shape[2]
+                    old_img_w = img.shape[3]
+                    for i in range(3):
+                        model(img, augment=augment)[0]
 
-            # Inference
-            pred = model(img, augment=augment)[0]
+                # Inference
+                pred = model(img, augment=augment)[0]
 
-            # Apply NMS
-            pred = non_max_suppression(pred, conf_thres, iou_thres, classes=classes, agnostic=agnostic_nms)
+                # Apply NMS
+                pred = non_max_suppression(pred, conf_thres, iou_thres, classes=classes, agnostic=agnostic_nms)
 
-            # Process detections
-            for i, det in enumerate(pred):  # detections per image
-                result = ''
-                if webcam:  # batch_size >= 1
-                    s, im0 = '%g: ' % i, im0s[i].copy()
-                else:
-                    s, im0 = '', im0s
-                
-                #print('len(det) :', len(det))
-                if len(det):
-                    # Rescale boxes from img_size to im0 size
-                    det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
+                # Process detections
+                for i, det in enumerate(pred):  # detections per image
+                    result = ''
+                    if webcam:  # batch_size >= 1
+                        s, im0 = '%g: ' % i, im0s[i].copy()
+                    else:
+                        s, im0 = '', im0s
+                    
+                    #print('len(det) :', len(det))
+                    if len(det):
+                        # Rescale boxes from img_size to im0 size
+                        det[:, :4] = scale_coords(img.shape[2:], det[:, :4], im0.shape).round()
 
-                    # Print results
-                    for c in det[:, -1].unique():
-                        n = (det[:, -1] == c).sum()  # detections per class
-                        s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
-                        result = names[int(c)]
-                    # Write results
-                    for *xyxy, conf, cls in reversed(det):
-                        label = f'{names[int(cls)]} {conf:.2f}'
-                        #result = label
-                        plot_one_box(xyxy, im0, label=label, color=names[int(cls)], line_thickness=2, name = str(names[int(cls)]))
+                        # Print results
+                        for c in det[:, -1].unique():
+                            n = (det[:, -1] == c).sum()  # detections per class
+                            s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
+                            result = names[int(c)]
+                        # Write results
+                        for *xyxy, conf, cls in reversed(det):
+                            label = f'{names[int(cls)]} {conf:.2f}'
+                            #result = label
+                            plot_one_box(xyxy, im0, label=label, color=names[int(cls)], line_thickness=2, name = str(names[int(cls)]))
 
-                # Stream results
-                self.display_image(im0)
-                print(result)
+                    # Stream results
+                    self.display_image(im0)
+                    print(result)
 
         
     def display_image(self, frame):
